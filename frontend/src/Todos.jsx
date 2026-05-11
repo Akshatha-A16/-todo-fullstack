@@ -14,7 +14,7 @@ const Todos = () => {
 // 
   const fetchTodos = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/todos')
+      const res = await axios.get('https://todo-fullstack-production-209e.up.railway.app/api/todos')
       setData(res.data)
     } catch (err) {
       console.error(err)
@@ -26,7 +26,7 @@ const Todos = () => {
   const addTodo = async () => {
     if (!text.trim()) return
     setAdding(true)
-    await axios.post('http://localhost:5000/api/todos', {
+    await axios.post('https://todo-fullstack-production-209e.up.railway.app/api/todos', {
       title: text,
       user_id: 1
     })
@@ -36,12 +36,12 @@ const Todos = () => {
   }
 
   const deleteTodo = async (id) => {
-    await axios.delete(`http://localhost:5000/api/todos/${id}`)
+    await axios.delete(`https://todo-fullstack-production-209e.up.railway.app/api/todos/${id}`)
     fetchTodos()
   }
 
   const toggleTodo = async (id) => {
-    await axios.put(`http://localhost:5000/api/todos/${id}`)
+    await axios.put(`https://todo-fullstack-production-209e.up.railway.app/api/todos/${id}`)
     fetchTodos()
   }
 
